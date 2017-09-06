@@ -48,7 +48,7 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	}
 
 	```
-	* Haga que en esta misma clase se inyecte el bean de tipo BlueprintServices, y que a éste -a su vez-, se le inyecte el bean BasicBillCalculator. Para esto, revise en [la documentación de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html) las secciones 7.9.2 y 7.10.3, respecto a cómo declarar Beans, y cómo definir la inyección de dependencias entre éstos, mediante anotaciones.
+	* Haga que en esta misma clase se inyecte el bean de tipo BlueprintServices (al cual, a su vez, se le inyectarán sus dependencias de persisntecia y de filtrado de puntos).
 
 4. Verifique el funcionamiento de a aplicación lanzando la aplicación con maven:
 
@@ -109,10 +109,10 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 
 ### Parte III
 
-El componente BlueprintsRESTAPI funcionará en un entorno concurrente. Es decir, antederá múltiples peticiones simultáneamente (con el stack de aplicaciones usado, dichas peticiones se atenderán por defecto a través de hilos). Dado lo anterior, debe hacer una revisión de su API (una vez funcione), e identificar:
+El componente BlueprintsRESTAPI funcionará en un entorno concurrente. Es decir, atederá múltiples peticiones simultáneamente (con el stack de aplicaciones usado, dichas peticiones se atenderán por defecto a través múltiples de hilos). Dado lo anterior, debe hacer una revisión de su API (una vez funcione), e identificar:
 
 * Qué condiciones de carrera se podrían presentar?
-* Cuales son las regiones críticas?
+* Cuales son las respectivas regiones críticas?
 
 Ajuste el código para suprimir las condiciones de carrera. Tengan en cuenta que simplemente sincronizar el acceso a las operaciones de persistencia/consulta DEGRADARÁ SIGNIFICATIVAMENTE el desempeño de API, por lo cual se deben buscar estrategias alternativas.
 
