@@ -3,21 +3,42 @@
 ### Arquitecturas de Software
 
 
-#### API REST adaptable para el cálculo de cuentas de restaurantes.
+1. Ajustar las pruebas usando inyección de dependencias.
+2. Revisar niveles de madurez Richardson. Definir URIs de recurso: blueprint
+3. Hacer el API para el recurso /blueprints
+4. Probar con cliente
+5. Recursos:
+	/blueprints/{autor} <- todos los del autor
+	/blueprints/{autor}/{nombre} <- de un autor en concreto
+
+6. Verbos: actualizar blueprint, borrar blueprint: agregar lo que haga falta a las capas...
+
+6. Condiciones de carrera en implementación InMemory....
+
+7. Agregar 'bean' que se inyecte, para liberación de carga:
+	v1 - Borrar puntos repetidos consecutivos.
+	v2 - submuestrear.
+
+Debe funcionar.
+
+![](img/ClassDiagram.png)
+
+
+#### API REST para la gestión de planos.
+
+En este ejercicio se va a construír un API REST que permita gestionar planos arquitectónicos de una prestigiosa compañia de diseño. La idea de este API es ofrecer un medio estandarizado e 'independiente de la plataforma' para que las herramientas que se desarrollen a futuro para la compañía puedan consultar y almacenar los planos de forma centralizada.
 
 En este proyecto se va a construír un API REST que permita calcular el valor total de una cuenta de restaurante, teniendo en cuenta las políticas y regímenes tributarios configurados para la misma.
 
 Este API será soportado por el siguiente modelo de clases, el cual considera el principio de inversión de dependencias, y asume el uso de Inyección de dependencias:
-
-![](img/ClassDiagram.png)
-
 
 
 
 
 ### Parte I
 
-1. Configure su aplicación para que ofrezca el recurso "/orders", de manera que cuando se le haga una petición GET, retorne -en formato jSON- el conjunto de todas las órdenes. Para esto:
+1. Configure su aplicación para que ofrezca el recurso "/blueprints", de manera que cuando se le haga una petición GET, retorne -en formato jSON- el conjunto de todos los planos. Para esto:
+
 	* Modifique la clase OrdersAPIController teniendo en cuenta el siguiente ejemplo de controlador REST hecho con SpringMVC/SpringBoot:
 
 	```java
