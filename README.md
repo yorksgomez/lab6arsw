@@ -10,6 +10,7 @@ En este ejercicio se va a construír el componente BlueprintsRESTAPI, el cual pe
 El siguiente, es el diagrama de componentes que corresponde a las decisiones arquitectónicas planteadas al inicio del proyecto:
 
 ![](img/CompDiag.png)
+
 Donde se definió que:
 
 * El componente BlueprintsRESTAPI debe resolver los servicios de su interfaz a través de un componente de servicios, el cual -a su vez- estará asociado con un componente que provea el esquema de persistencia. Es decir, se quiere un bajo acoplamiento entre el API, la implementación de los servicios, y el esquema de persistencia usado por los mismos.
