@@ -118,7 +118,7 @@ Ajuste el código para suprimir las condiciones de carrera. Tengan en cuenta que
 
 Escriba su análisis y la solución aplicada en el archivo ANALISIS_CONCURRENCIA.txt
 
-#### Criterios de aceptación
+#### Criterios de evaluación
 
 1. Diseño.
 	* Al controlador REST implementado se le inyectan los servicios implementados en el laboratorio anterior.
