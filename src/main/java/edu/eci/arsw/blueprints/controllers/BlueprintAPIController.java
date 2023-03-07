@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 
 /**
@@ -49,9 +50,20 @@ public class BlueprintAPIController {
         try {
             //obtener datos que se enviarán a través del API
             return new ResponseEntity<>(services.getBlueprintsByAuthor(author),HttpStatus.ACCEPTED);
-        } catch (Exception ex) {
+        } catch (BlueprintNotFoundException ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Error bla bla bla",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Error 404 Blueprint not found",HttpStatus.NOT_FOUND);
+        }  
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/{author}/{bpname}")
+    public ResponseEntity<?> getBlueprintsByAuthorAndName(@PathVariable String author, @PathVariable String bpname) {
+        try {
+            //obtener datos que se enviarán a través del API
+            return new ResponseEntity<>(services.getBlueprint(author, bpname),HttpStatus.ACCEPTED);
+        } catch (BlueprintNotFoundException ex) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error 404 Blueprint not found",HttpStatus.NOT_FOUND);
         }  
     }
     
