@@ -87,6 +87,18 @@ public class BlueprintAPIController {
         }  
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "/{author}/{bpname}")
+    public ResponseEntity<?> update(@RequestBody BlueprintBody body, @PathVariable String author, @PathVariable String bpname) {
+        try {
+            services.updateBlueprint(author, bpname, body);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (Exception ex) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Could not create blueprint",HttpStatus.NOT_FOUND);
+        }  
+    }
+
+
     
 }
 
