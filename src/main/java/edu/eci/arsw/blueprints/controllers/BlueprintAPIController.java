@@ -27,6 +27,7 @@ import edu.eci.arsw.blueprints.controllers.dao.BlueprintBody;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
+import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 
 /**
@@ -45,9 +46,9 @@ public class BlueprintAPIController {
         try {
             //obtener datos que se enviarán a través del API
             return new ResponseEntity<>(services.getAllBlueprints(),HttpStatus.ACCEPTED);
-        } catch (Exception ex) {
+        } catch (BlueprintNotFoundException ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Error bla bla bla",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se ha encontrado",HttpStatus.NOT_FOUND);
         }  
     }
 
@@ -81,9 +82,9 @@ public class BlueprintAPIController {
             services.addNewBlueprint(bp);
             
             return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (Exception ex) {
+        } catch (BlueprintPersistenceException ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Could not create blueprint",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Could not create blueprint",HttpStatus.BAD_REQUEST);
         }  
     }
 
@@ -94,7 +95,7 @@ public class BlueprintAPIController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Could not create blueprint",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Could not update blueprint",HttpStatus.BAD_REQUEST);
         }  
     }
 
