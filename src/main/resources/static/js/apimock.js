@@ -16,7 +16,6 @@ apimock=(function(){
 		{author:"maryweyland","points":[{"x":120,"y":120},{"x":115,"y":125}],"name":"tree2"},
 		{author:"maryweyland","points":[{"x":130,"y":111},{"x":125,"y":135}],"name":"car2"}];
 
-
 	return {
 		getBlueprintsByAuthor:function(authname,callback){
 			callback(
