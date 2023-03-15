@@ -9,23 +9,33 @@ apimock=(function(){
 	 	{author:"johnconnor","points":[{"x":340,"y":240},{"x":15,"y":215}],"name":"gear"},
 		{author:"johnconnor","points":[{"x":34,"y":76},{"x":190,"y":71}],"name":"tree"},
 <<<<<<< HEAD
+<<<<<<< HEAD
 		{author:"johnconnor","points":[{"x":370,"y":210},{"x":152,"y":212}],"name":"car"}];
+=======
+<<<<<<< .merge_file_mtNcwU
+		{author:"johnconnor","points":[{"x":370,"y":210},{"x":152,"y":212}],"name":"car"}];
+=======
+		{author:"johnconnor","points":[{"x":370,"y":210},{"x":152,"y":212},{"x":350,"y":350}],"name":"car"},
+	];
+>>>>>>> .merge_file_BGuEZS
+>>>>>>> actions/cesar
 
 	mockdata["maryweyland"]=[
 		{author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"house2"},
 	 	{author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"gear2"},
 		{author:"maryweyland","points":[{"x":120,"y":120},{"x":115,"y":125}],"name":"tree2"},
 		{author:"maryweyland","points":[{"x":130,"y":111},{"x":125,"y":135}],"name":"car2"}];
+<<<<<<< HEAD
 =======
 		{author:"johnconnor","points":[{"x":370,"y":210},{"x":152,"y":212},{"x":350,"y":350}],"name":"car"},
 	];
 >>>>>>> canvas/yorks
+=======
+<<<<<<< .merge_file_mtNcwU
+>>>>>>> actions/cesar
 
-	mockdata["maryweyland"]=[
-		{author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"house2"},
-	 	{author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"gear2"},
-		{author:"maryweyland","points":[{"x":120,"y":120},{"x":115,"y":125}],"name":"tree2"},
-		{author:"maryweyland","points":[{"x":130,"y":111},{"x":125,"y":135}],"name":"car2"}];
+=======
+>>>>>>> .merge_file_BGuEZS
 
 	return {
 		getBlueprintsByAuthor:function(authname,callback){
