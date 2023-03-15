@@ -1,5 +1,3 @@
-var apimock = apimock;
-
 var app = (function () {
     var author;
     var blueprintName;
@@ -13,7 +11,7 @@ var app = (function () {
         if (author === "") {
             alert("Debe ingresar un nombre");
         } else {
-            apimock.getBlueprintsByAuthor(author, authorData);
+            apiclient.getBlueprintsByAuthor(author, authorData);
         }
     }
 
@@ -48,7 +46,7 @@ var app = (function () {
         author = $("#author").val();
         blueprintName = data.id;
         $("#nameblu").text("Current blueprint: " + blueprintName);
-        apimock.getBlueprintByAuthorAndName(author, blueprintName, printPoints);
+        apiclient.getBlueprintByAuthorAndName(author, blueprintName, printPoints);
     }
 
     function printPoints(data) {
@@ -74,7 +72,7 @@ var app = (function () {
         getNameAuthorBlueprints: getNameAuthorBlueprints,
         selectAuthor: (author) => {
             _selectedAuthor = author;
-            apimock.getBlueprintsByAuthor(author, (blueprints) => _selectedBlueprints = blueprints);
+            apiclient.getBlueprintsByAuthor(author, (blueprints) => _selectedBlueprints = blueprints);
         },
         getAuthor: () => {
             return _selectedAuthor;
@@ -84,7 +82,7 @@ var app = (function () {
         },
         draw: (blueprint) => {
 
-            apimock.getBlueprintsByNameAndAuthor(author, blueprint, (found) => {
+            apiclient.getBlueprintsByNameAndAuthor(author, blueprint, (found) => {
                 let canvas = document.getElementById("myCanvas");
                 let context = canvas.getContext('2d');
                 let points = found.points;
