@@ -39,8 +39,6 @@ var App = (() => {
                     let p1 = points[i];
                     let p2 = points[i-1];
                     context.beginPath();
-                    console.log(p1);
-                    console.log(p2);
                     context.moveTo(p1.x, p1.y);
                     context.lineTo(p2.x, p2.y);
                     context.stroke();
