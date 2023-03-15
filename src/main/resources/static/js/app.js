@@ -44,32 +44,33 @@ var app = (function (){
             }
          }
 
-         function getBlueprintByAuthorAndName(data) {
-                 author = $("#author").val();
-                 blueprintName = data.id;
-                 $("#nameblu").text("Current blueprint: " + blueprintName);
-                 apimock.getBlueprintByAuthorAndName(author, blueprintName, printPoints);
-             }
+        function getBlueprintByAuthorAndName(data) {
+            author = $("#author").val();
+            blueprintName = data.id;
+            $("#nameblu").text("Current blueprint: " + blueprintName);
+            apimock.getBlueprintByAuthorAndName(author, blueprintName, printPoints);
+        }
 
-         function printPoints(data) {
-                 const puntos = data.points;
-                 var c = document.getElementById("myCanvas");
-                 var ctx = c.getContext("2d");
-                 ctx.clearRect(0, 0, c.width, c.height);
-                 ctx.restore();
-                 ctx.beginPath();
-                 for (let i = 1; i < puntos.length; i++) {
-                     ctx.moveTo(puntos[i - 1].x, puntos[i - 1].y);
-                     ctx.lineTo(puntos[i].x, puntos[i].y);
-                     if (i === puntos.length - 1) {
-                         ctx.moveTo(puntos[i].x, puntos[i].y);
-                         ctx.lineTo(puntos[0].x, puntos[0].y);
-                     }
-                 }
-                 ctx.stroke();
-             }
-     return{
+        function printPoints(data) {
+            const puntos = data.points;
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+            ctx.restore();
+            ctx.beginPath();
+            for (let i = 1; i < puntos.length; i++) {
+                ctx.moveTo(puntos[i - 1].x, puntos[i - 1].y);
+                ctx.lineTo(puntos[i].x, puntos[i].y);
+                if (i === puntos.length - 1) {
+                    ctx.moveTo(puntos[i].x, puntos[i].y);
+                    ctx.lineTo(puntos[0].x, puntos[0].y);
+                }
+            }
+            ctx.stroke();
+        }
+        
+    return{
         getBlueprintByAuthorAndName:getBlueprintByAuthorAndName,
         getNameAuthorBlueprints: getNameAuthorBlueprints
-     }
+    }
 })();
